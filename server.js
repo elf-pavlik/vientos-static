@@ -9,7 +9,26 @@ const PWA_DIRNAME = process.env.PWA_DIRNAME || 'vientos-pwa'
 
 const httpServerOptions = {
   key: fs.readFileSync(process.env.TLS_KEY_PATH),
-  cert: fs.readFileSync(process.env.TLS_CERT_PATH)
+  cert: fs.readFileSync(process.env.TLS_CERT_PATH),
+  honorCipherOrder: true,
+  ciphers: [
+    'ECDHE-RSA-AES256-SHA384',
+    'DHE-RSA-AES256-SHA384',
+    'ECDHE-RSA-AES256-SHA256',
+    'DHE-RSA-AES256-SHA256',
+    'ECDHE-RSA-AES128-SHA256',
+    'DHE-RSA-AES128-SHA256',
+    'HIGH',
+    '!aNULL',
+    '!eNULL',
+    '!EXPORT',
+    '!DES',
+    '!RC4',
+    '!MD5',
+    '!PSK',
+    '!SRP',
+    '!CAMELLIA'
+  ].join(':')
 }
 
 const server = new Hapi.Server({
