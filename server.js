@@ -30,7 +30,9 @@ const connectionOptions = {
   port: PORT,
   routes: {
     security: {
-      preload: true
+      hsts: {
+        preload: true
+      }
     }
   }
 }
