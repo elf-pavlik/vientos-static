@@ -11,6 +11,7 @@
   "dependencies": {
     "hapi": "^16.1.1",
     "http2": "^3.3.6",
-    "inert": "^4.2.0"
+    "inert": "^4.2.0",
+    "ssl-config": "^1.0.0"
   }
 }
