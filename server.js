@@ -26,7 +26,14 @@ const server = new Hapi.Server({
   }
 })
 
-const connectionOptions = { port: PORT }
+const connectionOptions = {
+  port: PORT,
+  routes: {
+    security: {
+      preload: true
+    }
+  }
+}
 if (httpServerOptions.key && httpServerOptions.cert) {
   connectionOptions.listener = http2.createServer(httpServerOptions)
 }
